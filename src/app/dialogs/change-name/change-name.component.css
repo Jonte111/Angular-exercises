@@ -1,0 +1,7 @@
+.change-name-container{
+  display: grid;
+}
+.close-dialog-button{
+  display:grid;
+  justify-self: right;
+}

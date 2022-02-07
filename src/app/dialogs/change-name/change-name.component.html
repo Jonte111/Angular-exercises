@@ -1,0 +1,24 @@
+<div class="change-name-container">
+  <button mat-mini-fab color="warn" class="close-dialog-button" (click)="closeDialog()">X</button>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Change name</mat-label>
+      <input matInput type="text" placeholder={{personData.name}} name="newName" [(ngModel)]="newName">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Phonenumber</mat-label>
+      <input matInput type="text" placeholder={{personData.phoneNumber}} name="newPhoneNumber" [(ngModel)]="newPhoneNumber">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput type="text" placeholder={{personData.city}} name="newcity" [(ngModel)]="newCity">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
+  </form>
+  <button mat-raised-button color="primary" (click)="changeInformation()">Change name</button>
+</div>

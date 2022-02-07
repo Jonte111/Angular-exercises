@@ -1,0 +1,83 @@
+<mat-form-field appearance="fill" *ngIf="isLoading">
+  <mat-label>City</mat-label>
+  <mat-select (selectionChange)="onCityChange($event.value)">
+    <mat-option  *ngFor="let person of people" [value]="person.city">
+      {{person.city}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+  <!--- Note that these columns can be defined in any order.
+    The actual rendered columns are set as a property on the row definition" -->
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id"> 
+        Id </th>
+        <td mat-cell *matCellDef="let people"> {{people.id}} </td>
+      </ng-container>
+      
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> <mat-icon>person_pin</mat-icon>
+          Name </th>
+          <td mat-cell *matCellDef="let people"> {{people.name}} </td>
+        </ng-container>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by phoneNumber"> <mat-icon>phone</mat-icon>
+            Phone number
+          </th>
+          <td mat-cell *matCellDef="let people"> {{people.phoneNumber}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by city">
+            <mat-icon>home</mat-icon>
+            City
+          </th>
+          <td mat-cell *matCellDef="let people"> {{people.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employmentYear">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by employmentYear">
+            <mat-icon>event</mat-icon>
+            Employment year
+          </th>
+          <td mat-cell *matCellDef="let people"> {{people.employmentYear}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="salary">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by salary">
+            <mat-icon>payments</mat-icon>
+            Salary
+          </th>
+          <td mat-cell *matCellDef="let people"> {{people.salary}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let people">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <span (click)="editUser(people)"><mat-icon>mode_edit</mat-icon>Edit user</span>
+              </button>
+              <button mat-menu-item>
+                <span (click)="deleteUser(people.id)"><mat-icon>delete</mat-icon>Delete user</span>
+              </button>
+            </mat-menu>
+          </mat-cell>
+        </ng-container> -->
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div *ngIf="!isLoading">Loading...<mat-spinner></mat-spinner>
+</div>

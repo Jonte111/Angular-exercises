@@ -1,0 +1,7 @@
+<app-person-table 
+  [people]="people" 
+  [newPeople]="newPeople"
+  (idToBeDeleted)="deleteUser($event)" 
+  >
+</app-person-table>
+<button mat-raised-button color="primary" (click)="addPerson()">Add person</button>

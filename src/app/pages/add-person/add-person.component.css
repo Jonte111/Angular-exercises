@@ -1,0 +1,13 @@
+.add-person-container{
+  display: grid;
+  /* text-align: center; */
+  /* justify-self: center; */
+  
+  width: 40px;
+}
+
+.card{
+  display: grid;
+  justify-self: center;
+  row-gap: 10px;
+}
